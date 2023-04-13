@@ -32,6 +32,8 @@ L.glify.shapes({
 });
 */
 
+var tennis_geoms = fetch('https://github.com/ischlo/tennis_london/blob/main/data/tennis_london.geojson');
+
 L.geoJSON(tennis_geoms,{
   style: { 
         color : '#ff4f5a',
