@@ -8,12 +8,9 @@
 // namespace
 // L.glify
 
-// import glify from "leaflet.glify";
-  
-  
 var map = L.map('map',{
-  zoomSnap:.2,
-  zoomDelta:.2,
+  zoomSnap: 0,
+  zoomDelta:.4,
   trackResize: true,
   center: [51.5148, -0.1269],
   maxBounds: L.latLngBounds([51.8, -0.7], [51.2, 0.41]),
