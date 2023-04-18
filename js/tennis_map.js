@@ -7,6 +7,7 @@
 
 // namespace
 // L.glify
+// var geokdbush = require('geokdbush');
 
 var map = L.map('map',{
   zoomSnap: 0,
@@ -46,5 +47,46 @@ L.geoJSON(tennis_geoms,{
     layer.bindPopup(feature.properties.popups,popupOptions);
   }
 }).addTo(map);
+
+// var points = {lon = }
+
+// console.log(tennis_geoms.features);
+      
+var index = new KDBush(tennis_geoms.features, (p) => p.properties.lon, (p) => p.properties.lat);
+// console.log(index);
+
+var lines_layer = L.layerGroup();
+
+function n5(po, layerG){
+  // add the following into a click event on the map.
+  var point = po.latlng;
+  
+  // console.log(point);
+  
+  var nearest = around(index, point.lng, point.lat, maxResults = 5);
+  
+  // console.log(nearest);
+  
+  for(let i = 0;i<5;++i){ 
+    coords = [
+      point
+      ,[nearest[i].properties.lat, nearest[i].properties.lon ]
+    ];
+    
+    layerG.addLayer(L.polyline(coords, {color:"black"}));
+  }
+  layerG.addTo(map);
+}
+
+map.on("click", function(po){
+  
+  lines_layer.clearLayers();
+  n5(po,lines_layer);
+  
+});
+
+
+      
+      
       
       
