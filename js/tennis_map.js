@@ -52,6 +52,7 @@ L.geoJSON(tennis_geoms,{
 
 // console.log(tennis_geoms.features);
 
+/*
 var index = new KDBush(tennis_geoms.features, (p) => p.properties.lon, (p) => p.properties.lat);
 // console.log(index);
 
@@ -84,7 +85,7 @@ map.on("click", function(po){
   n5(po,lines_layer);
   
 });
-
+*/
 
       
       
