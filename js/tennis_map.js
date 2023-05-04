@@ -48,26 +48,20 @@ L.geoJSON(tennis_geoms,{
   }
 }).addTo(map);
 
-// var points = {lon = }
-
-// console.log(tennis_geoms.features);
-
-/*
+// create the index
 var index = new KDBush(tennis_geoms.features, (p) => p.properties.lon, (p) => p.properties.lat);
-// console.log(index);
 
+// initiate the layer with the lines, empty
 var lines_layer = L.layerGroup();
 
+// function to get the nearest 5 tennis courts from the set of centriods 
+// and draw the line between the click point and the court
 function n5(po, layerG){
   // add the following into a click event on the map.
   var point = po.latlng;
-  
   // console.log(point);
-  
   var nearest = around(index, point.lng, point.lat, maxResults = 5);
-  
   // console.log(nearest);
-  
   for(let i = 0;i<5;++i){ 
     coords = [
       point
@@ -85,7 +79,7 @@ map.on("click", function(po){
   n5(po,lines_layer);
   
 });
-*/
+
 
       
       
